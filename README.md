@@ -170,10 +170,7 @@ php -q C:\full-path-to-example\server.php
 
 Now I have a question, wich commands will you use to run the server.php script as a true daemon? Because in my hosting seems that it just keep alive one or two minutes, then have to rerun command
 ```
-<img src="images/xampp-shell.jpg"/>
-
-
-
+<img alt="xampp shell" src="images/xampp-shell.jpg"/>
 
 ### PHP Socket Steps
 We will be using PHP socket to create our WebSocket Chat server, Basically our PHP Chat server should do the following.
@@ -219,3 +216,5 @@ socket_accept($socket);
 
 ### Handshake:
 Client has to introduce itself by sending a WebSocket handshake request to establish a successful connection with server, a handshake request contains a Sec-WebSocket-Key a base64 encoded randomly generated 16-byte value. And the server reads the key, attaches magic string “258EAFA5-E914-47DA-95CA-C5AB0DC85B11”, hash key with SHA1, returns the key in Sec-WebSocket-Accept encoded with base64.
+
+<img alt="websocket handshake" src="images/websocket-handshake-header.jpg"/>
