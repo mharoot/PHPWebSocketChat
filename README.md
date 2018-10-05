@@ -6,8 +6,8 @@ rather than usual HTTP response and requests, giving us much faster and
 persistent communication between a web browser and a server. Let’s create a 
 simple chat system using this cool technology (HTML5 WebSocket and PHP)
 
-
-https://www.sanwebe.com/2013/05/chat-using-websocket-php-socket
+### Trouble Shooting
+https://stackoverflow.com/questions/6137823/fatal-error-call-to-undefined-function-socket-create
 
 
 ### Browser Support

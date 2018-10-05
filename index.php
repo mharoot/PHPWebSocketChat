@@ -62,8 +62,9 @@ button#send-message {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script language="javascript" type="text/javascript">  
 	//create a new WebSocket object.
+    var host = "192.168.1.172";
 	var msgBox = $('#message-box');
-	var wsUri = "ws://localhost:9000/demo/server.php"; 	
+	var wsUri = "ws://"+host+":9000/PHPWebSocketChat/server.php"; 	
 	websocket = new WebSocket(wsUri); 
 	
 	websocket.onopen = function(ev) { // connection is open 
