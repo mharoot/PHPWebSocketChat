@@ -40,10 +40,12 @@ input[type=text]{
     box-shadow: 2px 2px 2px #0000001c;
 }
 input[type=text]#name{
-    width:20%;
+    width:100%;
+	margin-bottom: 10px;
 }
 input[type=text]#message{
-    width:60%;
+    width:100%;
+	margin-bottom: 10px;
 }
 button#send-message {
     border: none;
@@ -59,7 +61,9 @@ button#send-message {
 <div id="message-box"></div>
 <div class="user-panel">
 <input type="text" name="name" id="name" placeholder="Your Name" maxlength="15" />
+<br>
 <input type="text" name="message" id="message" placeholder="Type your message here..." maxlength="100" />
+<br>
 <button id="send-message">Send</button>
 </div>
 </div>
@@ -134,6 +138,7 @@ button#send-message {
 		//convert and send data to server
 		websocket.send(JSON.stringify(msg));	
 		message_input.val(''); //reset message input
+		name_input.remove();
 	}
 </script>
 </body>
