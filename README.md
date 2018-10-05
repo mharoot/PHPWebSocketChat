@@ -170,7 +170,8 @@ php -q C:\full-path-to-example\server.php
 
 Now I have a question, wich commands will you use to run the server.php script as a true daemon? Because in my hosting seems that it just keep alive one or two minutes, then have to rerun command
 ```
-![xampp shell](images/xampp-shell.jpg)
+<img src="images/xampp-shell.jpg"/>
+
 
 
 
