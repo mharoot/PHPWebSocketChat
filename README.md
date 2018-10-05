@@ -218,3 +218,30 @@ socket_accept($socket);
 Client has to introduce itself by sending a WebSocket handshake request to establish a successful connection with server, a handshake request contains a Sec-WebSocket-Key a base64 encoded randomly generated 16-byte value. And the server reads the key, attaches magic string “258EAFA5-E914-47DA-95CA-C5AB0DC85B11”, hash key with SHA1, returns the key in Sec-WebSocket-Accept encoded with base64.
 
 <img alt="websocket handshake" src="images/websocket-handshake-header.jpg"/>
+
+
+### Handshake response with PHP :
+
+```PHP
+$secKey = $headers['Sec-WebSocket-Key'];
+$secAccept = base64_encode(pack('H*', sha1($secKey . '258EAFA5-E914-47DA-95CA-C5AB0DC85B11')));
+$upgrade  = "HTTP/1.1 101 Web Socket Protocol Handshake\r\n" .
+"Upgrade: websocket\r\n" .
+"Connection: Upgrade\r\n" .
+"WebSocket-Origin: $host\r\n" .
+"WebSocket-Location: ws://$host:$port/deamon.php\r\n".
+"Sec-WebSocket-Accept:$secAccept\r\n\r\n";
+socket_write($client_conn,$upgrade,strlen($upgrade));
+```
+
+### Unmasking/Encoding Data Frames:
+After the handshaking, client can now send and receive messages, but the messages sent are all encrypted, so if we want to display them, each data frame needs to be unmasked as described here
+
+### Starting Chat Server
+It’s time to download the sample files, you should find 2 PHP files in this repository, index.php and server.php. Using your Shell command-line interface in XAMPP, start WebSocket chat server by typing :
+
+```bash
+php -q c:\path-to-server\server.php
+```
+
+Once the server starts, you can navigate to index.php page using your browser and start test chatting.
